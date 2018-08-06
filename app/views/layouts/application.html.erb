@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>Vibin website</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <%= render '/layouts/nav' %>
+
+<% if params[:id] != nil %>
+  <% @url = '/user/' + params[:id] %>
+    <% if current_page?(@url) %>
+      <div class="row">
+        <img src="/VibinLogo.jpg" class="profile-banner1" >
+          <img src="/VibinLogo.jpg" class="profile-banner1" >
+
+                          <img src="/VibinLogo.jpg" height="100px" width="100px" class="profile-avatar" >
+
+                <p class="user-profile-name" style="line-height: 60%; text-align: center;" ><%= params[:id] %>  </p>
+                <p class="user-profile-username" style="line-height: 60%">     username</p>
+                <p class="user-profile-location" style="line-height: 80%" >     location</p>
+
+
+
+                <div class="favorite-artist">
+                  Favorite Artist <br>
+                  Currensy
+                </div>
+                  <div class="favorite-song">
+                    Favorite Song <br>
+                    JUICE WRLD - LUCID DREAM
+                  </div>
+                    <div class="followers">
+                      Followers <br>
+                      <button>100000</button>
+                    </div>
+                      <div class="following">
+                        Following <br>
+                        <button>10000</button>
+                      </div>
+                        <div class="bio">
+                          BIOO
+                        </div>
+
+      </div>
+    <% end %>
+<% end %>
+
+<div class="container">
+  <span class="notice"><%= notice %></span>
+  <span class="alert"><%= alert %></span>
+
+  <%= yield %>
+
+</div>
+</body>
+</html>

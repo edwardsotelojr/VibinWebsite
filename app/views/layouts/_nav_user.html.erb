@@ -1,0 +1,41 @@
+<nav>
+  <ul>
+    <li ><a href="/home">TL</a></li>
+    <li ><a href="/explore">Discover</a></li>
+    <li ><a href="/notification">Notification</a></li>
+    <li ><a href="/messages">Messages</a></li>
+    <li ><a href="/groupies">Groupies</a></li>
+
+
+    <li style="float: right; margin-top: 10px;">
+      <div class="dropdown">
+        <button class="dropbtn"><img src="/VibinLogo.jpg" class="rounded-img" height="25px" width="25px"> <span class="caret"></span></button>
+          <div class="dropdown-content" >
+               <a href="/user/<%= current_user.username %>">Profile</a>
+
+          </div>
+</div>
+           </li>
+           <li style="float: right; margin-top: -10px;">
+               <div class="search-container">
+                 <form action="form-inline">
+                     <input type="search" placeholder="Search" aria-label="Search">
+                       <button class="btn" type="submit">GO </button>
+
+                 </form>
+              </div>
+           </li>
+    </ul>
+
+</nav>
+
+<nav class="navbar navbar-fixed-bottom" style="margin-bottom: -25px;">
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <audio class="audios" id="yes-audio" controls preload="none">
+<source src="song.mp3" type="audio/mpeg">
+</audio>
+
+</div>
+  </div>
+</nav>

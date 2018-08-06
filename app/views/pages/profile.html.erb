@@ -1,0 +1,113 @@
+<div class="row user-profile-nav">
+  <div class="col-xs-12">
+    <ul class="nav nav-tabs">
+      <li class="nav-item">
+        <a href="/user/<%= current_user.username %>/Post"> Post </a>
+      </li>
+      <li class="nav-item">
+        <a href="/user/<%= current_user.username %>/Music"> Music </a>
+      </li>
+      <li class="nav-item">
+        <a href="/user/<%= current_user.username %>/Playlists"> Playlists </a>
+      </li>
+      <li class="nav-item">
+          <a href="/user/<%= current_user.username %>/Media"> Media </a>
+        </li>
+    </ul>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-xs-12">
+    <%= render "/components/post_form" %><br><br>
+      <% for @p in @posts %>
+        <div class="panel panel-default">
+          <div class="panel-body row">
+            <div class="col-sm-1">
+              <img src="/VibinLogo.jpg" class="rounded-img" height="50px" width="50px"></img>
+            </div>
+              <div class="col-sm-11">
+                <p class="post-title"><span class="post-owner"><%= User.find(@p.user_id).username %></span><span class="post-creation"> - <%= @p.created_at.to_formatted_s(:short) %></span></p>
+                <p class="post-content"><%= @p.content %></p>
+              </div>
+                <div class="col-sm-12">
+                  <p class="post-links">
+                    <span class="glyphicon glyphicon-comment g-links" aria-hidden="true"></span>
+                    <span class="gylphicon glyphicon-retweet g-links" aria-hidden="true"></span>
+                    <span class="glyphicon gylphicon-heart g-links" aria-hidden="true"></span>
+                    <span class="gylphicon gylphicon-option-horizontal g-links" aria-hidden="true"></span>
+                      <a href="">View Comments</a>
+                  </p>
+                </div>
+          </div>
+        </div>
+      <% end %>
+  </div>
+</div>
+
+<!--
+  <div class="col-xs-3" >
+    <div class="col-sm-12" style=" margin-top: -100px;">
+      <img src="/VibinLogo.jpg" height="200px" width="200px" class="image rounded-img">
+    </div>
+      <div class="col-sm-12">
+        <h3 style="font-weight: bold;"><%= params[:id] %></h3>
+      <p>Scooooooter! </p>
+    </div>
+  </div>
+  <div class="col-xs-6">
+    <%= render "/components/post_form" %><br><br>
+      <% for @p in @posts %>
+        <div class="panel panel-default">
+          <div class="panel-body row">
+            <div class="col-sm-1">
+              <img src="/VibinLogo.jpg" class="rounded-img" height="50px" width="50px"></img>
+            </div>
+              <div class="col-sm-11">
+                <p class="post-title"><span class="post-owner"><%= User.find(@p.user_id).username %></span><span class="post-creation"> - <%= @p.created_at.to_formatted_s(:short) %></span></p>
+                <p class="post-content"><%= @p.content %></p>
+              </div>
+                <div class="col-sm-12">
+                  <p class="post-links">
+                    <span class="glyphicon glyphicon-comment g-links" aria-hidden="true"></span>
+                    <span class="gylphicon glyphicon-retweet g-links" aria-hidden="true"></span>
+                    <span class="glyphicon gylphicon-heart g-links" aria-hidden="true"></span>
+                    <span class="gylphicon gylphicon-option-horizontal g-links" aria-hidden="true"></span>
+                      <a href="">View Comments</a>
+                  </p>
+                </div>
+          </div>
+        </div>
+      <% end %>
+        <div class="panel panel-default post-panel">
+          <div class="panel-body row">
+            <div class="col-sm-12">
+              <center><img src="/VibinLogo.jpg" height="25px" width="25px"></center></img>
+              <center><a href="#top"><p class="opacity: .7; color: grey;">Back to Top <span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span></p></a></center>
+            </div>
+          </div>
+        </div>
+</div>
+   <div class="col-xs-3">
+     <%= render '/components/follow_button', :user => User.find_by_username(params[:id]) %>
+     <div class="panel panel-default">
+       <div class="panel-body">
+          <h5 style="color: grey; font-size: 125%;">who to follow</h5>
+            <% for @u in @toFollow do %>
+              <p style="font-weight: bold; opacity: 0.85;"><a href="/user/<%= @u.username %>"><%= @u.username %></a></p>
+            <% end %>
+      </div>
+    </div>
+      <div class = "panel panel-default">
+        <div class="panel-body">
+          <h5 style="color:grey; font-size:125%;"> Trends </h5>
+            <a href="">Trend 1</a><br>
+             <span style="color:grey;"> 1000 Posts </span><br><br>
+             <a href="">Trend 2</a><br>
+             <span style="color:grey;"> 1000 Posts </span><br><br>
+             <a href="">Trend 3</a><br>
+             <span style="color:grey;"> 1000 Posts </span><br><br>
+       </div>
+     </div>
+    </div>
+-->
