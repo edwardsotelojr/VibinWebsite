@@ -1,7 +1,5 @@
-
-<div class="row d-flex flex-nowrap " style="margin-top: 50px;">
-
-  <div class="col-xs-3" style="position:relative; min-width: 280px; ">
+<div class="container" style="z-index:-1; min-width:1200px;">
+  <div class="col-xs-2" style=" overflow: hidden;top:100px; min-width: 350px; max-width: 400px;">
     <div class="panel panel-default" >
       <div class="panel-image hide-panel-body">
         <img src="/VibinLogo.jpg" class="panel-image-preview">
@@ -37,7 +35,7 @@
             </div>
           </div>
   </div>
-          <div class="col-xs-6" style="position:relative; min-width: 600px; ">
+          <div class="col-xs-5" style=" max-width: 400px; top:100px;">
             <%= render "/components/post_form" %><br><br>
               <% for @p in @posts %>
                 <div class="panel panel-default">
@@ -71,7 +69,7 @@
                   </div>
                 </div>
         </div>
-      <div class="col-xs-2" style="position:relative; ">
+      <div class="col-xs-2" style="top:100px; ">
         <div class="panel panel-default">
           <div class="panel-body">
              <h5 style="color: grey; font-size: 125%;">who to follow</h5>
@@ -87,6 +85,5 @@
           </div>
         </div>
 
-      </div>
-
+</div>
 </div>

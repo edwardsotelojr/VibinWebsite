@@ -1,4 +1,4 @@
-<nav>
+<nav style="z-index:1;">
   <ul>
     <li ><a href="/home">TL</a></li>
     <li ><a href="/explore">Discover</a></li>
@@ -8,13 +8,12 @@
 
 
     <li style="float: right; margin-top: 10px;">
-      <div class="dropdown">
+      <div class="dropdown" style="z-index:1;">
         <button class="dropbtn"><img src="/VibinLogo.jpg" class="rounded-img" height="25px" width="25px"> <span class="caret"></span></button>
-          <div class="dropdown-content" >
+          <div class="dropdown-content" style="z-index:1;" >
                <a href="/user/<%= current_user.username %>">Profile</a>
-
           </div>
-</div>
+      </div>
            </li>
            <li style="float: right; margin-top: -10px;">
                <div class="search-container">
