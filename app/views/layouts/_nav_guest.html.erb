@@ -1,24 +1,16 @@
-<nav style="z-index:1;">
-  <ul>
-    <li ><a href="/home">Home</a></li>
-    <li ><a href="/explore">Discover</a></li>
-    <li><%= link_to('Sign Up', new_user_registration_path) %></li>
-            <li><%= link_to('Sign In', new_user_session_path) %></li>
 
 
-           </li>
-           <li style="float: right; margin-top: -10px;">
-               <div class="search-container">
-                 <form action="form-inline">
-                     <input type="search" placeholder="Search" aria-label="Search">
-                       <button class="btn" type="submit">GO </button>
+<nav class="navbar navbar-expand navbar-dark bg-success" style="position: fixed; min-width: 100%; width: 800px; z-index:999;">
+    <a class="navbar-brand" href="/">Vibin Music</a>
+    <div class="navbar-collapse collapse">
+        <ul class="navbar-nav pt-1">
+            <li class="nav-item">
+                <a class="nav-link" href="/explore">Explore</a>
+            </li>
+            <li><a class="nav-link" href="/users/sign_up"> Sign up </a></li>
+            <li><a class="nav-link" href="/users/sign_in">Log in</a></li>
 
-                 </form>
-              </div>
-           </li>
-    </ul>
 
+        </ul>
+    </div>
 </nav>
-<script>
-  background: url("/VibinLogo.jpg") no-repeat center center fixed;
-</script>

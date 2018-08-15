@@ -5,31 +5,32 @@ class PagesController < ApplicationController
   end
 # back-end code for pages/home
   def home
-    following = Array.new
-    for @f in current_user.following do
-      following.push(@f.id)
-    end
-    @posts = Post.where("user_id = ?", following)
-    @newPost = Post.new
-      @toFollow = User.all.first(5)
+  @posts = Post.all
   end
 # back-end code for pages/profile
   def profile
     # grab the username from the URL as :id
-if (User.find_by_username(params[:id]))
-    @username = params[:id]
-  else
-    #redirect to 404 (root for now)
-    redirect_to root_path, :notice=> "User not found"
-  end
-  @newPost = Post.new
-  @posts = Post.all.where("user_id = ?", User.find_by_username(params[:id]).id)
-  @toFollow = User.all.first(5)
+@posts = Post.all
 end
 # back-end code for pages/explore
   def explore
-   @posts = Post.all
-   @newPost = Post.new
+   @post = Post.new
+   @post.user_id = "713"
+   respond_to do |f|
+   if (@post.save)
+
+     flash[:alert] = "Success"
+     f.html { redirect_to "", notice: "Post Created"}
+   else
+     f.html { redirect_to "" , notice: "error"}
+ end
+ end
    @toFollow = User.all.last(5)
   end
+  def groupies
+  end
+  private
+    def post_params
+        params.require(:post).permit(:user_id, :content)
+    end
 end

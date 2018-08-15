@@ -1,0 +1,15 @@
+<h1 style="margin-top: 100px color:black"> dsfsd</h1>
+<table>
+  <tr>
+    <th>user</th>
+    <th>content</th>
+  </tr>
+
+    <% @posts.each do |post| %>
+    <tr>
+        <td> <%= post.user_id %> </td>
+        <td> <%= post.content %> </td>
+        <td><%= link_to "show", posts_path(post) %></td>
+      </tr>
+      <% end %>
+    </table>
