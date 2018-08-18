@@ -5,12 +5,13 @@ class PagesController < ApplicationController
   end
 # back-end code for pages/home
   def home
-  @posts = Post.all
+@posts = Post.all.where("user_id = ?", current_user.id)
+  @newpost = Post.new
   end
 # back-end code for pages/profile
   def profile
     # grab the username from the URL as :id
-@posts = Post.all
+@posts = Post.all.where("user_id = ?", current_user.id)
 end
 # back-end code for pages/explore
   def explore
@@ -29,7 +30,9 @@ end
   end
   def groupies
   end
+
   private
+
     def post_params
         params.require(:post).permit(:user_id, :content)
     end

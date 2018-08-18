@@ -1,10 +1,10 @@
 class PostsController < ApplicationController
 
 def new
-  @post = Post.new
+  @posts = Post.new
 end
 def index
-  @post = Post.all.order("created_at DESC")
+  @posts = Post.all
 end
 
 def create
