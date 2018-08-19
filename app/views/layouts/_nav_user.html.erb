@@ -13,13 +13,14 @@
             </li>
         </ul>
         <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-              <form class="navbar-form " style="margin-top:-18px;">
-                 <input class="form-control form-control-sm mr-3 w-100"  type="text" placeholder="Search" aria-label="Search">
-                   </form>
+            <li class="nav-item" style="margin-top:-20px;">
+              <%= form_tag(search_path, :method => "get", id: "search-form") do %>
+                <%= text_field_tag :search, params[:search], placeholder: "Search" %>
+                <%= submit_tag 'Search' %>
+              <% end %>
             </li>
             <li class="nav-item">
-                <button class="btn btn-warning border " style="height:20px; margin-top:2px;" type="button">
+                <button class="btn btn-warning border " style="height:20px; margin-top:2px;" type="button" href="/search">
                   <span class="glyphicon glyphicon-search"></span>
             </button>
 

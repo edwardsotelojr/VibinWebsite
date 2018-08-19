@@ -13,6 +13,8 @@
   <body>
     <%= render '/layouts/nav' %>
 
+
+
 <% if params[:id] != nil %>
   <% @url = '/user/' + params[:id] %>
     <% if current_page?(@url) %>

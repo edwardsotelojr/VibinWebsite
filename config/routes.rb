@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 # Define root url
         root 'pages#index'
 # Define routes for Pages
+          get '/search' => 'pages#search'
           get '/home' => 'pages#home'
           get '/user/:id' => 'pages#profile'
           get '/explore' => 'pages#explore'

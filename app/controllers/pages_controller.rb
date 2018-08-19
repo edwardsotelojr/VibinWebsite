@@ -2,6 +2,7 @@
 class PagesController < ApplicationController
 # back-end code for pages/index
   def index
+
   end
 # back-end code for pages/home
   def home
@@ -15,21 +16,23 @@ class PagesController < ApplicationController
 end
 # back-end code for pages/explore
   def explore
-   @post = Post.new
-   @post.user_id = "713"
-   respond_to do |f|
-   if (@post.save)
+    @users = User.where("username LIKE ?", "")
+ end
 
-     flash[:alert] = "Success"
-     f.html { redirect_to "", notice: "Post Created"}
-   else
-     f.html { redirect_to "" , notice: "error"}
- end
- end
-   @toFollow = User.all.last(5)
-  end
+
   def groupies
   end
+
+  def search
+      @users = User.all
+      if params[:search]
+        @users = User.search(params[:search])
+        
+      else
+        @users = User.all
+      end
+end
+
 
   private
 
