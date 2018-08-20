@@ -12,6 +12,8 @@ class PagesController < ApplicationController
 # back-end code for pages/profile
   def profile
     # grab the username from the URL as :id
+    @user = User.all.where("fullname", "test102Full name")
+
 @posts = Post.all.where("user_id = ?", current_user.id)
 end
 # back-end code for pages/explore
@@ -27,7 +29,7 @@ end
       @users = User.all
       if params[:search]
         @users = User.search(params[:search])
-        
+
       else
         @users = User.all
       end
