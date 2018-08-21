@@ -16,15 +16,10 @@
             <li class="nav-item" style="margin-top:-20px;">
               <%= form_tag(search_path, :method => "get", id: "search-form") do %>
                 <%= text_field_tag :search, params[:search], placeholder: "Search" %>
-                <%= submit_tag 'Search' %>
+              <%= submit_tag '', class: "btn btn-sm glyphicon glyphicon-search", style: "width:22px; margin-top:-5px;" %>
               <% end %>
             </li>
-            <li class="nav-item">
-                <button class="btn btn-warning border " style="height:20px; margin-top:2px;" type="button" href="/search">
-                  <span class="glyphicon glyphicon-search"></span>
-            </button>
 
-            </li>
             <li class="nav-item dropdown justify-content-end"  >
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 

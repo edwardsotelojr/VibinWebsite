@@ -1,4 +1,4 @@
-<div class="container" style="margin-top:100px;">
+<div class="container" style="margin-top:50px;">
   <%= form_tag(search_path, :method => "get", id: "search-form") do %>
     <%= text_field_tag :search, params[:search], placeholder: "Search" %>
     <%= submit_tag 'Search', :username => nil %>
@@ -7,6 +7,9 @@
 <% if @users.blank?  %>
      <p style="color:black;">user not found</p>
  <% else %>
-    <p style="color:black;"> <%= params[:id] %></p>
+    <div class="row border">
+      <div class="col-xs-3"><img src="/default.jpg" height="50px" width="50px"> </div>
+      <div class="col-xs-3"><p style="color:black;">User found</p> </div>
+    </div>
 <% end %>
 </div>
