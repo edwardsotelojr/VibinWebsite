@@ -7,28 +7,31 @@
 
     <div class="field"  style="margin-top:10px;">
     <p style="margin-bottom:-20px;">  Full Name</p>
-      <%= f.text_field :full_name, :size =>50, autofocus: true, autocomplete: "full name" %>
+      <%= f.text_field :full_name, :size =>50, autofocus: true %>
   </div>
 
     <div class="field" style="margin-top:10px;">
     <p style="margin-bottom:-20px;">  Email</p>
-      <%= f.email_field :email, :size =>50, autofocus: true, autocomplete: "email" %>
+      <%= f.email_field :email, :size =>50, autofocus: true%>
   </div>
 
   <div class="field" style="margin-top:10px;">
   <p style="margin-bottom:-20px;">  Username</p>
-    <%= f.text_field :username, :size =>50, autofocus: true, autocomplete: "username"  %>
+    <%= f.text_field :username, :size =>50, autofocus: true %>
 </div>
 
     <div class="field" style="margin-top:10px;">
       <p style="margin-bottom:-20px;">  Password</p>
-      <%= f.password_field :password, :size =>50, autocomplete: "new-password" %>
+      <%= f.password_field :password, :size =>50%>
     </div>
 
     <div class="field " style="margin-top:10px;">
       <p style="margin-bottom:-20px;">  Repeat Password</p>
-      <%= f.password_field :password_confirmation, :size =>50, autocomplete: "new-password" %>
+      <%= f.password_field :password_confirmation, :size =>50 %>
     </div>
+    <div class="field">
+    <%= f.file_field :avatar %>
+  </div>
 
     <div class="actions">
       <%= f.submit "Sign up" %>

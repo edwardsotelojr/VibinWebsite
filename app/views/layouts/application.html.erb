@@ -6,8 +6,8 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'application.css', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application.js', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
@@ -22,10 +22,10 @@
         <img src="/VibinLogo.jpg" class="profile-banner1" >
           <img src="/VibinLogo.jpg" class="profile-banner1" >
 
-                          <img src="/VibinLogo.jpg" height="100px" width="100px" class="profile-avatar" >
+                   <%= image_tag current_user.avatar.url(:thumb), class: "profile-avatar", style: "border-radius: 15px;" %>
 
-                <p class="user-profile-name" style="line-height: 60%; text-align: center;" > </p>
-                <p class="user-profile-username" style="line-height: 60%">   @<%= params[:id]  %> </p>
+                <p class="user-profile-name" style="line-height: 60%; text-align: center;" ><%= @currentuserfullname %> </p>
+                <p class="user-profile-username" style="line-height: 60%">   @<%= @currentusername %> </p>
                 <p class="user-profile-location" style="line-height: 80%" >     location</p>
 
 
@@ -49,6 +49,33 @@
                         <div class="bio">
                           BIOO
                         </div>
+
+      </div>
+      <div class="row">
+        <nav class="navbar navbar-expand bg-warning border w-100" style="height:50px; ">
+        <div class="navbar-collapse collapse">
+              <ul class="navbar-nav pt-1">
+                <li class="nav-item ">
+                  <a class="nav-link text-success" href="" > Post</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link text-success" href=""> Music </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link text-success" href=""> Playlists </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link text-success" href=""> Media </a>
+                </li>
+
+              </ul>
+              <ul class="navbar-nav ml-auto">
+                <% if user_signed_in? %>
+                            <div class="col-xs-3" style="text-align: right; margin-top: 5px;"><li type="button" class="btn btn-default" style="color: grey; opacity: 0.8; font-weight: bold;"><%= link_to 'Edit Profile',edit_user_registration_path %></li></div>
+                          <% end %>
+              </ul>
+        </div>
+          </nav>
 
       </div>
     <% end %>

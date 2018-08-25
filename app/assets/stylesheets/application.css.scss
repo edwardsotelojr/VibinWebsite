@@ -79,6 +79,8 @@
 .profile-avatar{
                 position: absolute;
                 top:190px;
+                height: 100px;
+                width: 100px;
                 left: 50%;
                 transform: translate(-50%, -50%);
 }
@@ -137,7 +139,7 @@
             }
 
 .user-profile-nav {
-        
+
 }
 
 
@@ -187,7 +189,11 @@
 
 
 .rounded-img {
-              border-radius: 5%;
+              height: 50px;
+              width: 50px;
+              margin-left: 10px;
+               margin-top:-10px;
+               border-radius:5px;
              }
 .post-form-panel{
                   margin-bottom: -21px;
@@ -317,3 +323,16 @@
 //
 //
 //
+
+.round-image-50 {
+    background-color: white;
+    border: 1px solid #d9d9d9;
+    border-radius: 25px;
+    -moz-border-radius: 25px;
+    -webkit-border-radius: 25px;
+    height: 50px;
+    width: 50px;
+    overflow: hidden;
+    text-align: center;
+    img { width: 100% }
+}

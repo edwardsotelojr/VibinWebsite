@@ -11,6 +11,11 @@ class PagesController < ApplicationController
   end
 # back-end code for pages/profile
   def profile
+
+    if current_user
+        @currentuserfullname = current_user.full_name
+        @currentusername = current_user.username
+    end
     # grab the username from the URL as :id
     @user = User.all.where("fullname", "test102Full name")
 
