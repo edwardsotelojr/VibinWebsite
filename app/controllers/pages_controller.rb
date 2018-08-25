@@ -21,6 +21,15 @@ class PagesController < ApplicationController
 
 @posts = Post.all.where("user_id = ?", current_user.id)
 end
+def profileMusic
+
+  if current_user
+      @currentuserfullname = current_user.full_name
+      @currentusername = current_user.username
+  end
+
+end
+
 # back-end code for pages/explore
   def explore
     @users = User.where("username LIKE ?", "")

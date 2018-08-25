@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   get '/search' => 'pages#search'
   get '/home' => 'pages#home'
   get '/user/:id' => 'pages#profile'
+  get 'user/:id/Music' => 'pages#profileMusic'
   get '/explore' => 'pages#explore'
   get '/groupies' => 'pages#groupies'
   get '/signup' => 'users#new'

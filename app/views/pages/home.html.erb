@@ -48,7 +48,7 @@
               <%= image_tag current_user.avatar.url(:thumb), class: "rounded-img", style: "margin-top: 0px;" %>
           </div>
           <div class="col-xs-7 ml-4 " style=" text-align: left; height:20px;">
-              <h3 style="color:black;"><%= current_user.username %></h3>
+              <h3 style="color:black;"><%= User.find(post.user_id).username %></h3>
                 <div class="row">
                   <div class="col-xs-5">
                     <p class="ml-3" style="color:black; text-align: left;"><%= post.content %></p>

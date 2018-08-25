@@ -17,7 +17,7 @@
 
 <% if params[:id] != nil %>
   <% @url = '/user/' + params[:id] %>
-    <% if current_page?(@url) %>
+    <% if current_page?(@url) || current_page?(@url+'/Music') || current_page?(@url+"/Playlists") || current_page?(@url+'/Media') %>
       <div class="row">
         <img src="/VibinLogo.jpg" class="profile-banner1" >
           <img src="/VibinLogo.jpg" class="profile-banner1" >
@@ -56,10 +56,10 @@
         <div class="navbar-collapse collapse">
               <ul class="navbar-nav pt-1">
                 <li class="nav-item ">
-                  <a class="nav-link text-success" href="" > Post</a>
+                  <a class="nav-link text-success" href="/user/<%= params[:id]%>" > Post</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link text-success" href=""> Music </a>
+                  <a class="nav-link text-success" href="/user/<%= params[:id]%>/Music"> Music </a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link text-success" href=""> Playlists </a>
