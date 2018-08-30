@@ -38,9 +38,9 @@ end
   end
 
   def search
-      @users = User.all
+
       if params[:search]
-        @users = User.search(params[:search])
+        @users = User.find_by_username params[:search]
 
       else
         @users = User.all
