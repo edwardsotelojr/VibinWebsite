@@ -24,12 +24,12 @@
 
                    <%= image_tag current_user.avatar.url(:thumb), class: "profile-avatar", style: "border-radius: 15px;" %>
 
-                <p class="user-profile-name" style="line-height: 60%; text-align: center;" ><%= @currentuserfullname %> </p>
-                <p class="user-profile-username" style="line-height: 60%">   @<%= @currentusername %> </p>
+                <p class="user-profile-name" style="line-height: 60%; text-align: center;" ><%= @user.full_name %>  </p>
+
+                <p class="user-profile-username border" style="line-height: 60%">   @<%= @user.username %> </p>
                 <p class="user-profile-location" style="line-height: 80%" >     location</p>
 
-
-
+              <%= render '/components/follow_button', :user => User.find_by_username(params[:id]) %>
                 <div class="favorite-artist">
                   Favorite Artist <br>
                   Currensy
@@ -40,14 +40,14 @@
                   </div>
                     <div class="followers">
                       Followers <br>
-                      <button>100000</button>
+                      <center><button><%= @followers.count %></button></center>
                     </div>
                       <div class="following">
                         Following <br>
-                        <button>10000</button>
+                      <center>  <button><%= @follow.count %></button></center>
                       </div>
                         <div class="bio">
-                          BIOO
+                         <h3> <%= @user.email %></h3>
                         </div>
 
       </div>

@@ -84,30 +84,42 @@
                 left: 50%;
                 transform: translate(-50%, -50%);
 }
+.followbutton {
+  top:75px;
+  position: absolute;
+  left:33%;
+  transform: translateX(-20%);
+  font-size: 18px;
+
+}
 .favorite-artist {
+  background-color: #00FFFF;
             position: absolute;
-            top:145px;
-            left:20%;
+            top:140px;
+            left:19%;
             transform: translateX(-20%);
             font-size: 18px;
 }
 .favorite-song {
+  background-color: #00FFFF;
             position: absolute;
-            top: 145px;
+            top: 140px;
             left: 80%;
             transform: translateX(-80%);
             font-size: 18px;
 }
-.following {
+.following{
+              background-color: #00FFFF;
             position: absolute;
-            top: 190px;
+            top: 200px;
             left: 10%;
             transform: translateX(-10%);
             font-size: 16px;
 }
 .followers {
+            background-color: #00FFFF;
             position: absolute;
-            top: 190px;
+            top: 200px;
             left: 30%;
             transform: translateX(-30%);
             font-size: 16px;
