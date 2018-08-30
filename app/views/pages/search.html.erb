@@ -8,10 +8,10 @@
      <p style="color:black;">user not found</p>
  <% else %>
 
-    <div class="row border">
-      <div class="col-xs-3"><img src="/default.jpg" height="50px" width="50px"> </div>
+    <button class="btn col-xs-3" style="float: left;"><a href="/user/<%= @users.username %>">
+      <div class="col-xs-3"><%= image_tag current_user.avatar.url(:thumb), class: "rounded-img", style: "margin-right: 12px;" %></div>
       <div class="col-xs-3"><p style="color:black;"><%= @users.username %></p> </div>
+ </a></button>
 
-    </div>
 <% end %>
 </div>
