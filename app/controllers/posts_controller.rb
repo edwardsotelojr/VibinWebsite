@@ -26,6 +26,6 @@ def show
 end
 private
     def post_params # allow certain data to be passed via form
-      params.require(:post).permit(:user_id, :content)
+      params.require(:post).permit(:user_id, :content, :audio)
     end
 end

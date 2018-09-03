@@ -6,7 +6,13 @@ class PagesController < ApplicationController
   end
 # back-end code for pages/home
   def home
-@posts = Post.all.where("user_id = ?", current_user.id)
+    following = Array.new
+    following.push(current_user.id)
+     for @f in current_user.following do
+       following.push(@f.id)
+     end
+@posts = Post.where("user_id IN (?)", following)
+@userpost = Post.all.where("user_id = ?", current_user.id)
 @followers = Relationship.all.where("followed_id = ?", current_user.id)
   @newpost = Post.new
   end
@@ -16,14 +22,16 @@ class PagesController < ApplicationController
     # grab the username from the URL as :id
     @user = User.find_by_username params[:id]
  @followers = Relationship.all.where("followed_id = ?", User.find_by_username(params["id"]).id)
-@posts = Post.all.where("user_id = ?", current_user.id)
+@posts = Post.all.where("user_id = ?", User.find_by_username(params["id"]).id)
 @follow = Relationship.all.where("follower_id = ?", User.find_by_username(params["id"]).id)
 end
 def profileMusic
 
   if current_user
-      @currentuserfullname = current_user.full_name
-      @currentusername = current_user.username
+      @user = User.find_by_username params[:id]
+      @followers = Relationship.all.where("followed_id = ?", User.find_by_username(params["id"]).id)
+     @posts = Post.all.where("user_id = ?", User.find_by_username(params["id"]).id)
+     @follow = Relationship.all.where("follower_id = ?", User.find_by_username(params["id"]).id)
   end
 
 end
@@ -54,6 +62,6 @@ end
     end
 
     def post_params
-        params.require(:post).permit(:user_id, :content)
+        params.require(:post).permit(:user_id, :content, :audio)
     end
 end
