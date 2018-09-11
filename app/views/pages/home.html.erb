@@ -16,18 +16,30 @@
         </div>
 
 <br>
-              <div class="row">
-                <div class="col-xs-4 ml-5" style="font-size: 80%; opacity: 0.7; color: green;">POSTS
-                </div>
-                  <div class="col-xs-4 ml-4 " style="font-size: 80%; color: green; opacity: 0.7;">FOLLOWERS
-                  </div>
+          <div class="row">
+              <div class="col-xs-4 ml-5" style="font-size: 80%; opacity: 0.7; color: green;">POSTS
               </div>
-              <div class="row">
-    <div class="col-xs-4 ml-5"><h6 style="color: #0084B4; font-size: 200%;"><%= @userpost.count %></h6>
-</div>
-<div class="col-xs-4 ml-5"><h6 style="color: #0084B4; font-size: 200%;">   <%= @followers.count %></h6>
-</div>
+              <div class="col-xs-4 ml-4 " style="font-size: 80%; color: green; opacity: 0.7;">FOLLOWERS
               </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-4 ml-5"><h6 style="color: #0084B4; font-size: 200%;"><%= @userpost.count %></h6>
+            </div>
+            <div class="col-xs-4 ml-5"><h6 style="color: #0084B4; font-size: 200%;">   <%= @followers.count %></h6>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-4 ml-5" style="font-size: 80%; opacity: 0.7; color: green;">Songs
+            </div>
+            <div class="col-xs-4 ml-4 " style="font-size: 80%; color: green; opacity: 0.7;">FOLLOWING
+            </div>
+      </div>
+      <div class="row">
+          <div class="col-xs-4 ml-5"><h6 style="color: #0084B4; font-size: 200%;"><%= @songs.count %></h6>
+          </div>
+          <div class="col-xs-4 ml-5"><h6 style="color: #0084B4; font-size: 200%;">   <%= @following.count %></h6>
+          </div>
+      </div>
 
 
               <div class="row " style="margin-top:50px;">
@@ -52,10 +64,18 @@
                 <div class="row">
                   <div class="col-xs-5">
                     <p class="ml-3" style="color:black; text-align: left;"><%= @p.content %></p>
+<% if @p.pic_file_name != nil %>
+    photo found
+<% end %>
+
                     <% if @p.audio_file_name != nil %>
-                     <%= audio_tag '/system/posts/audios/000/000/015/original/'+ @p.audio_file_name, class: "audio-play" %>
+                    <% if @p.id < 99 %>
+                     <%= audio_tag '/system/posts/audios/000/000/0'+String(@p.id)+'/original/'+ @p.audio_file_name, class: "audio-play" %>
 <p class="btn btn-primary audioButton">Play</p>
-                     <% end %>
+    <% else %>
+    <%= audio_tag '/system/posts/audios/000/000/'+String(@p.id)+'/original/'+ @p.audio_file_name, class: "audio-play" %>
+<p class="btn btn-primary audioButton">Play</p>
+                     <% end %><% end %>
                 </div>
             </div>
           </div>
@@ -79,16 +99,22 @@
 
   <% end %>
 </div>
-<div id="myModal" class="modal">
+<div id="myModal" class="modal" >
 
   <!-- Modal content -->
-  <div class="modal-content" style="min-width: 600px; max-width:600px;">
+  <div class="modal-content" style="min-width: 600px; max-width:600px; background-color:gray;">
     <span class="close" style="margin-left:-400px;">&times;</span><%= form_for(@newpost) do |f| %>
-  <button class="btn btn-success btn-lg"><span class="glyphicon glyphicon-music">
-    <%= f.file_field :audio %></span></button>
-    <button class="btn btn-success btn-lg"><span class="glyphicon glyphicon-picture  "></span></button>
-      <button class="btn btn-success btn-lg"><span class="glyphicon glyphicon-film"></span></button>
-        <div class="row">
+    <div class="row ">
+<span class="btn btn-success btn-lg col glyphicon glyphicon-music">
+    <%= f.file_field :audio, accept: 'audio/mp3' %></span>
+  </div>
+  <div class="row">
+  <span class="btn btn-success btn-lg col glyphicon glyphicon-picture">
+    <%= f.file_field :pic, accept: 'image/png, image/gif, image/jpeg' %></span>
+</div>
+<div class="row">
+    <span class="btn btn-success btn-lg col glyphicon glyphicon-film"></span>
+    </div>  <div class="row">
           <div class="col">
           <%= f.text_field :content, :size => 50 %>
         </div></div>

@@ -44,7 +44,7 @@
                     </div>
                       <div class="following">
                         Following <br>
-                      <center>  <button><%= @follow.count %></button></center>
+                      <center>  <button><%= @following.count %></button></center>
                       </div>
                         <div class="bio">
                          <h3> <%= @user.email %></h3>
@@ -54,7 +54,7 @@
       <div class="row">
         <nav class="navbar navbar-expand bg-warning border w-100" style="height:50px; ">
         <div class="navbar-collapse collapse">
-              <ul class="navbar-nav pt-1">
+              <ul class="navbar-nav pt-1 ml-5">
                 <li class="nav-item ">
                   <a class="nav-link text-success" href="/user/<%= params[:id]%>" > Post</a>
                 </li>
@@ -69,7 +69,7 @@
                 </li>
 
               </ul>
-              <ul class="navbar-nav ml-auto">
+              <ul class="navbar-nav ml-auto mr-5">
                 <% if user_signed_in? %>
                             <div class="col-xs-3" style="text-align: right; margin-top: 5px;"><li type="button" class="btn btn-default" style="color: grey; opacity: 0.8; font-weight: bold;"><%= link_to 'Edit Profile',edit_user_registration_path %></li></div>
                           <% end %>

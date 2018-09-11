@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'audio/index'
+  get 'audio/stream'
+  get 'audio/livestream'
+  get 'audio/upload'
   get 'users/create'
   get 'users/show'
   get 'users/search'
@@ -9,7 +13,7 @@ Rails.application.routes.draw do
     end
   end
   resources :posts
-  resources  :relationships
+  resources :relationships
 # Define root url
   root 'pages#index'
 # Define routes for Pages
@@ -20,5 +24,6 @@ Rails.application.routes.draw do
   get '/explore' => 'pages#explore'
   get '/groupies' => 'pages#groupies'
   get '/signup' => 'users#new'
+  get '/livestream' => 'audio#stream'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
