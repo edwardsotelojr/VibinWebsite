@@ -14,11 +14,7 @@ class PagesController < ApplicationController
      end
 @posts = Post.where("user_id IN (?)", following)
 @userpost = Post.all.where("user_id = ?", current_user.id)
- for @a in @userpost do
-   if @a.audio_file_name != nil
-      @songs.push(@a.audio_file_name)
-   end
- end
+
 @followers = Relationship.all.where("followed_id = ?", current_user.id)
 @following = Relationship.all.where("follower_id = ?", current_user.id)
   @newpost = Post.new
@@ -71,7 +67,7 @@ end
     end
 
     def post_params
-        params.require(:post).permit(:user_id, :content, :audio, :pic)
+        params.require(:post).permit(:user_id, :content, :audio, :photo)
 
     end
 end

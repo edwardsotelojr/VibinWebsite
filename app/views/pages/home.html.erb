@@ -8,7 +8,7 @@
     </div>
         <div class="row" >
           <div class="col-xs-2 ml-4 border border-dark " >
-          <%= image_tag current_user.avatar.url(:thumb), class: "rounded-img" %>
+          <%= image_tag current_user.avatar.thumb.url, size: "50x50" %>
           </div>
           <div class="col-xs-3 ml-1 border">
             <h4 style="color:black;"><%= current_user.username %></h4>
@@ -57,25 +57,23 @@
   <div class="row " style="padding:10px 0px 0px 0px;">
 
           <div class="post-col-avi ml-3 mr-3"  >
-              <%= image_tag current_user.avatar.url(:thumb), class: "rounded-img", style: "margin-top: 0px;" %>
+              <%= image_tag current_user.avatar.url, class: "rounded-img", style: "margin-top: 0px;" %>
           </div>
           <div class="col-xs-7 ml-4 " style=" text-align: left; height:20px;">
               <h3 style="color:black;"><%= User.find(@p.user_id).username %></h3>
                 <div class="row">
                   <div class="col-xs-5">
                     <p class="ml-3" style="color:black; text-align: left;"><%= @p.content %></p>
-<% if @p.pic_file_name != nil %>
-    photo found
-<% end %>
+                      <% if @p.photo.present? %>
 
-                    <% if @p.audio_file_name != nil %>
-                    <% if @p.id < 99 %>
-                     <%= audio_tag '/system/posts/audios/000/000/0'+String(@p.id)+'/original/'+ @p.audio_file_name, class: "audio-play" %>
-<p class="btn btn-primary audioButton">Play</p>
-    <% else %>
-    <%= audio_tag '/system/posts/audios/000/000/'+String(@p.id)+'/original/'+ @p.audio_file_name, class: "audio-play" %>
-<p class="btn btn-primary audioButton">Play</p>
-                     <% end %><% end %>
+                        <p>  photo found </p>
+                      <% end %>
+
+                    <% if @p.audio.present? %>
+                    <%= audio_tag @p.audio, class: "audio-play" %>
+                    <p class="btn btn-primary audioButton">Play</p>
+
+              <% end %>
                 </div>
             </div>
           </div>
@@ -103,14 +101,15 @@
 
   <!-- Modal content -->
   <div class="modal-content" style="min-width: 600px; max-width:600px; background-color:gray;">
-    <span class="close" style="margin-left:-400px;">&times;</span><%= form_for(@newpost) do |f| %>
+    <span class="close" style="margin-left:-400px;">&times;</span>
+    <%= form_for(@newpost) do |f| %>
     <div class="row ">
 <span class="btn btn-success btn-lg col glyphicon glyphicon-music">
     <%= f.file_field :audio, accept: 'audio/mp3' %></span>
   </div>
   <div class="row">
   <span class="btn btn-success btn-lg col glyphicon glyphicon-picture">
-    <%= f.file_field :pic, accept: 'image/png, image/gif, image/jpeg' %></span>
+    <%= f.file_field :photo  %></span>
 </div>
 <div class="row">
     <span class="btn btn-success btn-lg col glyphicon glyphicon-film"></span>

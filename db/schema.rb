@@ -10,21 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_06_205542) do
+ActiveRecord::Schema.define(version: 2018_09_19_032128) do
 
   create_table "posts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "content"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "audio_file_name"
-    t.string "audio_content_type"
-    t.integer "audio_file_size"
-    t.datetime "audio_updated_at"
-    t.string "pic_file_name"
-    t.string "pic_content_type"
-    t.integer "pic_file_size"
-    t.datetime "pic_updated_at"
+    t.string "audio"
+    t.string "photo"
     t.index ["user_id", "created_at"], name: "index_posts_on_user_id_and_created_at"
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
@@ -53,11 +47,8 @@ ActiveRecord::Schema.define(version: 2018_09_06_205542) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "full_name", limit: 20
-    t.string "avatar_file_name"
-    t.string "avatar_content_type"
-    t.integer "avatar_file_size"
-    t.datetime "avatar_updated_at"
     t.string "username"
+    t.string "avatar"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
